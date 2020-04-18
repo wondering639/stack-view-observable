@@ -38,10 +38,5 @@ class MainActivity : AppCompatActivity() {
         // to "second item". so we can easily see that data binding from ViewModel to the exposed dropdown
         // works when the shown value is "second item"
         binding.exposedDropdown.setText("first item")
-
-        binding.exposedDropdown.dialogCallback = {
-            Log.i(TAG, "dialogCallback was called")
-        }
-
     }
 }
