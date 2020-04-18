@@ -11,7 +11,7 @@ class NonFilteringArrayAdapter<String>(context: Context, layout: Int, var values
 
     private val nonFilteringFilter = object: Filter() {
         override fun performFiltering(constraint: CharSequence?): FilterResults {
-            // directly return unfiltered valie
+            // directly return unfiltered value
             // ".also" = work on object (it) and also return it
             return FilterResults().also {
                 it.values = values

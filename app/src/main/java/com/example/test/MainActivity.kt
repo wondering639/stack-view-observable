@@ -3,6 +3,7 @@ package com.example.test
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.test.databinding.ActivityMainBinding
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
         binding.viewModel = viewModel
@@ -31,9 +32,8 @@ class MainActivity : AppCompatActivity() {
                 resources.getStringArray(R.array.exposed_dropdown)
         )
 
-
         binding.exposedDropdown.setAdapter(adapter)
-
+        binding.exposedDropdown.setText("first item")
         binding.exposedDropdown.dialogCallback = {
             Log.i(TAG, "dialogCallback was called")
         }
